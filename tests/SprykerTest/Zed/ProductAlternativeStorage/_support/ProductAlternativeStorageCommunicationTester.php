@@ -8,10 +8,10 @@
 namespace SprykerTest\Zed\ProductAlternativeStorage;
 
 use Codeception\Actor;
-use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
+use Spryker\Zed\ProductAlternative\Business\ProductAlternativeFacadeInterface;
 use Spryker\Zed\ProductAlternativeStorage\Business\ProductAlternativeStorageBusinessFactory;
 use Spryker\Zed\ProductAlternativeStorage\Business\ProductAlternativeStorageFacade;
-use Spryker\Zed\ProductDiscontinued\Business\ProductDiscontinuedFacadeInterface;
+use Spryker\Zed\ProductAlternativeStorage\Business\ProductAlternativeStorageFacadeInterface;
 
 /**
  * Inherited Methods
@@ -29,20 +29,20 @@ use Spryker\Zed\ProductDiscontinued\Business\ProductDiscontinuedFacadeInterface;
  *
  * @SuppressWarnings(PHPMD)
  */
-class ProductAlternativeStorageBusinessTester extends Actor
+class ProductAlternativeStorageCommunicationTester extends Actor
 {
-    use _generated\ProductAlternativeStorageBusinessTesterActions;
+    use _generated\ProductAlternativeStorageCommunicationTesterActions;
 
     /**
      * Define custom actions here
      */
 
     /**
-     * @return \Spryker\Zed\ProductDiscontinued\Business\ProductDiscontinuedFacadeInterface
+     * @return \Spryker\Zed\ProductAlternative\Business\ProductAlternativeFacadeInterface
      */
-    public function getProductDiscontinuedFacade(): ProductDiscontinuedFacadeInterface
+    public function getProductAlternativeFacade(): ProductAlternativeFacadeInterface
     {
-        return $this->getLocator()->productDiscontinued()->facade();
+        return $this->getLocator()->productAlternative()->facade();
     }
 
     /**
@@ -57,13 +57,5 @@ class ProductAlternativeStorageBusinessTester extends Actor
         $facade->setFactory($factory);
 
         return $facade;
-    }
-
-    /**
-     * @return \Spryker\Zed\Locale\Business\LocaleFacadeInterface
-     */
-    public function getLocaleFacade(): LocaleFacadeInterface
-    {
-        return $this->getLocator()->locale()->facade();
     }
 }
