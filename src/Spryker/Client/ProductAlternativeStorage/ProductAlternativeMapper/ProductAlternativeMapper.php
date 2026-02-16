@@ -76,6 +76,7 @@ class ProductAlternativeMapper implements ProductAlternativeMapperInterface
             $productViewTransferList[] = $productViewTransfer->fromArray($concreteProductViewTransfer->modifiedToArray());
         }
 
+        /** @phpstan-ignore arrayFilter.same */
         return array_filter($productViewTransferList);
     }
 
