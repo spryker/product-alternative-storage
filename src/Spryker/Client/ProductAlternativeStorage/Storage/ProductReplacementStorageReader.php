@@ -25,10 +25,6 @@ class ProductReplacementStorageReader implements ProductReplacementStorageReader
      */
     protected $synchronizationService;
 
-    /**
-     * @param \Spryker\Client\ProductAlternativeStorage\Dependency\Client\ProductAlternativeStorageToStorageClientInterface $storageClient
-     * @param \Spryker\Client\ProductAlternativeStorage\Dependency\Service\ProductAlternativeStorageToSynchronizationServiceInterface $synchronizationService
-     */
     public function __construct(
         ProductAlternativeStorageToStorageClientInterface $storageClient,
         ProductAlternativeStorageToSynchronizationServiceInterface $synchronizationService
@@ -37,11 +33,6 @@ class ProductReplacementStorageReader implements ProductReplacementStorageReader
         $this->synchronizationService = $synchronizationService;
     }
 
-    /**
-     * @param string $sku
-     *
-     * @return \Generated\Shared\Transfer\ProductReplacementStorageTransfer|null
-     */
     public function findProductAlternativeStorage(string $sku): ?ProductReplacementStorageTransfer
     {
         $key = $this->generateKey($sku);
@@ -54,22 +45,12 @@ class ProductReplacementStorageReader implements ProductReplacementStorageReader
         return $this->mapToProductAlternativeStorage($productReplacementStorageData);
     }
 
-    /**
-     * @param array $productReplacementStorageData
-     *
-     * @return \Generated\Shared\Transfer\ProductReplacementStorageTransfer
-     */
     protected function mapToProductAlternativeStorage(array $productReplacementStorageData): ProductReplacementStorageTransfer
     {
         return (new ProductReplacementStorageTransfer())
             ->fromArray($productReplacementStorageData, true);
     }
 
-    /**
-     * @param string $sku
-     *
-     * @return string
-     */
     protected function generateKey(string $sku): string
     {
         $synchronizationDataTransfer = (new SynchronizationDataTransfer())

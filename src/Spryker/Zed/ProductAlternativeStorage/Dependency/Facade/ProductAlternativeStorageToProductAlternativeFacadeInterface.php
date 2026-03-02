@@ -12,11 +12,6 @@ use Generated\Shared\Transfer\ProductAlternativeCriteriaTransfer;
 
 interface ProductAlternativeStorageToProductAlternativeFacadeInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ProductAlternativeCriteriaTransfer $productAlternativeCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductAlternativeCollectionTransfer
-     */
     public function getProductAlternativeCollection(
         ProductAlternativeCriteriaTransfer $productAlternativeCriteriaTransfer
     ): ProductAlternativeCollectionTransfer;

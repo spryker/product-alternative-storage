@@ -32,11 +32,6 @@ class ProductReplacementPublisher implements ProductReplacementPublisherInterfac
      */
     protected $productAlternativeStorageConfig;
 
-    /**
-     * @param \Spryker\Zed\ProductAlternativeStorage\Persistence\ProductAlternativeStorageRepositoryInterface $productAlternativeStorageRepository
-     * @param \Spryker\Zed\ProductAlternativeStorage\Persistence\ProductAlternativeStorageEntityManagerInterface $productAlternativeStorageEntityManager
-     * @param \Spryker\Zed\ProductAlternativeStorage\ProductAlternativeStorageConfig $productAlternativeStorageConfig
-     */
     public function __construct(
         ProductAlternativeStorageRepositoryInterface $productAlternativeStorageRepository,
         ProductAlternativeStorageEntityManagerInterface $productAlternativeStorageEntityManager,
@@ -91,11 +86,6 @@ class ProductReplacementPublisher implements ProductReplacementPublisherInterfac
         $this->storeConcreteProductData($productConcreteIndexedSkusPerAbstract);
     }
 
-    /**
-     * @param array $indexedSkus
-     *
-     * @return void
-     */
     protected function storeAbstractProductData(array $indexedSkus): void
     {
         foreach ($indexedSkus as $idProductAbstract => $productAbstractData) {
@@ -106,11 +96,6 @@ class ProductReplacementPublisher implements ProductReplacementPublisherInterfac
         }
     }
 
-    /**
-     * @param array $indexedSkus
-     *
-     * @return void
-     */
     protected function storeConcreteProductData(array $indexedSkus): void
     {
         foreach ($indexedSkus as $idProduct => $productConcreteData) {

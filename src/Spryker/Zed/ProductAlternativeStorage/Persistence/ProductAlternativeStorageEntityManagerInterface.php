@@ -12,38 +12,18 @@ use Orm\Zed\ProductAlternativeStorage\Persistence\SpyProductReplacementForStorag
 
 interface ProductAlternativeStorageEntityManagerInterface
 {
-    /**
-     * @param \Orm\Zed\ProductAlternativeStorage\Persistence\SpyProductAlternativeStorage $productAlternativeStorageEntity
-     *
-     * @return void
-     */
     public function saveProductAlternativeStorageEntity(
         SpyProductAlternativeStorage $productAlternativeStorageEntity
     ): void;
 
-    /**
-     * @param \Orm\Zed\ProductAlternativeStorage\Persistence\SpyProductAlternativeStorage $productAlternativeStorageEntity
-     *
-     * @return void
-     */
     public function deleteProductAlternativeStorageEntity(
         SpyProductAlternativeStorage $productAlternativeStorageEntity
     ): void;
 
-    /**
-     * @param \Orm\Zed\ProductAlternativeStorage\Persistence\SpyProductReplacementForStorage $productReplacementForStorageEntity
-     *
-     * @return void
-     */
     public function saveProductReplacementForStorage(
         SpyProductReplacementForStorage $productReplacementForStorageEntity
     ): void;
 
-    /**
-     * @param \Orm\Zed\ProductAlternativeStorage\Persistence\SpyProductReplacementForStorage $productReplacementForStorageEntity
-     *
-     * @return void
-     */
     public function deleteProductReplacementForStorage(
         SpyProductReplacementForStorage $productReplacementForStorageEntity
     ): void;

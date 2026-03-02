@@ -55,9 +55,6 @@ class ProductAlternativeStorageListenerTest extends Unit
      */
     protected $alternativeProductConcrete;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -72,9 +69,6 @@ class ProductAlternativeStorageListenerTest extends Unit
         $this->tester->persistAlternativeForConcreteProduct($this->targetProductConcrete, [$this->alternativeProductConcrete->getSku()]);
     }
 
-    /**
-     * @return void
-     */
     public function testHandleBulkProductAlternativeStorageEntityCanBePublished(): void
     {
         // Arrange
@@ -98,9 +92,6 @@ class ProductAlternativeStorageListenerTest extends Unit
         $this->assertCount(1, $productDiscontinuedEntityTransfers);
     }
 
-    /**
-     * @return void
-     */
     public function testHandleBulkProductAlternativeStorageEntityCanBeUnPublished(): void
     {
         // Arrange

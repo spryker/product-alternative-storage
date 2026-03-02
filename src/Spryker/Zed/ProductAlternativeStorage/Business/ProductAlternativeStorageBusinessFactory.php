@@ -20,9 +20,6 @@ use Spryker\Zed\ProductAlternativeStorage\Business\ProductAlternativePublisher\P
  */
 class ProductAlternativeStorageBusinessFactory extends AbstractBusinessFactory
 {
-    /**
-     * @return \Spryker\Zed\ProductAlternativeStorage\Business\ProductAlternativePublisher\ProductAlternativePublisherInterface
-     */
     public function createProductAlternativePublisher(): ProductAlternativePublisherInterface
     {
         return new ProductAlternativePublisher(
@@ -32,9 +29,6 @@ class ProductAlternativeStorageBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductAlternativeStorage\Business\ProductAlternativePublisher\ProductReplacementPublisherInterface
-     */
     public function createProductReplacementPublisher(): ProductReplacementPublisherInterface
     {
         return new ProductReplacementPublisher(

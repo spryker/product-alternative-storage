@@ -25,11 +25,6 @@ class ProductAlternativeStorageToProductAlternativeFacadeBridge implements Produ
         $this->productAlternativeFacade = $productAlternativeFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductAlternativeCriteriaTransfer $productAlternativeCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductAlternativeCollectionTransfer
-     */
     public function getProductAlternativeCollection(
         ProductAlternativeCriteriaTransfer $productAlternativeCriteriaTransfer
     ): ProductAlternativeCollectionTransfer {

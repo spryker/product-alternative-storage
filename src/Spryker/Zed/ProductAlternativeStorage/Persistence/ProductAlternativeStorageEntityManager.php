@@ -16,22 +16,12 @@ use Spryker\Zed\Kernel\Persistence\AbstractEntityManager;
  */
 class ProductAlternativeStorageEntityManager extends AbstractEntityManager implements ProductAlternativeStorageEntityManagerInterface
 {
-    /**
-     * @param \Orm\Zed\ProductAlternativeStorage\Persistence\SpyProductAlternativeStorage $productAlternativeStorageEntity
-     *
-     * @return void
-     */
     public function saveProductAlternativeStorageEntity(
         SpyProductAlternativeStorage $productAlternativeStorageEntity
     ): void {
         $productAlternativeStorageEntity->save();
     }
 
-    /**
-     * @param \Orm\Zed\ProductAlternativeStorage\Persistence\SpyProductAlternativeStorage $productAlternativeStorageEntity
-     *
-     * @return void
-     */
     public function deleteProductAlternativeStorageEntity(
         SpyProductAlternativeStorage $productAlternativeStorageEntity
     ): void {
@@ -42,22 +32,12 @@ class ProductAlternativeStorageEntityManager extends AbstractEntityManager imple
             ->delete();
     }
 
-    /**
-     * @param \Orm\Zed\ProductAlternativeStorage\Persistence\SpyProductReplacementForStorage $productReplacementForStorageEntity
-     *
-     * @return void
-     */
     public function saveProductReplacementForStorage(
         SpyProductReplacementForStorage $productReplacementForStorageEntity
     ): void {
         $productReplacementForStorageEntity->save();
     }
 
-    /**
-     * @param \Orm\Zed\ProductAlternativeStorage\Persistence\SpyProductReplacementForStorage $productReplacementForStorageEntity
-     *
-     * @return void
-     */
     public function deleteProductReplacementForStorage(
         SpyProductReplacementForStorage $productReplacementForStorageEntity
     ): void {

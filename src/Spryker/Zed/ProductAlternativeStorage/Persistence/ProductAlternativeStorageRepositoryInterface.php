@@ -73,11 +73,6 @@ interface ProductAlternativeStorageRepositoryInterface
      */
     public function getIndexedProductConcreteIdToSkusByProductAbstractIds(array $productIds): array;
 
-    /**
-     * @param string $sku
-     *
-     * @return \Orm\Zed\ProductAlternativeStorage\Persistence\SpyProductReplacementForStorage|null
-     */
     public function findProductReplacementStorageEntitiesBySku(string $sku): ?SpyProductReplacementForStorage;
 
     /**

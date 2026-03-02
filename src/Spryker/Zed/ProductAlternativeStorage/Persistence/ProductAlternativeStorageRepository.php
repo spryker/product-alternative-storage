@@ -176,11 +176,6 @@ class ProductAlternativeStorageRepository extends AbstractRepository implements 
         return $indexedProductConcreteIdToSkusByProductAbstractIds->toArray(SpyProductTableMap::COL_ID_PRODUCT);
     }
 
-    /**
-     * @param string $sku
-     *
-     * @return \Orm\Zed\ProductAlternativeStorage\Persistence\SpyProductReplacementForStorage|null
-     */
     public function findProductReplacementStorageEntitiesBySku(string $sku): ?SpyProductReplacementForStorage
     {
         return $this->getFactory()

@@ -30,11 +30,6 @@ class ProductAlternativePublisher implements ProductAlternativePublisherInterfac
      */
     protected $productAlternativeStorageConfig;
 
-    /**
-     * @param \Spryker\Zed\ProductAlternativeStorage\Persistence\ProductAlternativeStorageRepositoryInterface $productAlternativeStorageRepository
-     * @param \Spryker\Zed\ProductAlternativeStorage\Persistence\ProductAlternativeStorageEntityManagerInterface $productAlternativeStorageEntityManager
-     * @param \Spryker\Zed\ProductAlternativeStorage\ProductAlternativeStorageConfig $productAlternativeStorageConfig
-     */
     public function __construct(
         ProductAlternativeStorageRepositoryInterface $productAlternativeStorageRepository,
         ProductAlternativeStorageEntityManagerInterface $productAlternativeStorageEntityManager,
@@ -81,12 +76,6 @@ class ProductAlternativePublisher implements ProductAlternativePublisherInterfac
         return $indexedProductAlternativeStorageEntities;
     }
 
-    /**
-     * @param \Orm\Zed\ProductAlternativeStorage\Persistence\SpyProductAlternativeStorage $productAlternativeStorageEntity
-     * @param int $productId
-     *
-     * @return void
-     */
     protected function saveStorageEntity(
         SpyProductAlternativeStorage $productAlternativeStorageEntity,
         int $productId

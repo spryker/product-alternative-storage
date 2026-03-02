@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\ProductViewTransfer;
 
 interface AlternativeProductApplicableCheckInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ProductViewTransfer $productViewTransfer
-     *
-     * @return bool
-     */
     public function isAlternativeProductApplicable(ProductViewTransfer $productViewTransfer): bool;
 }

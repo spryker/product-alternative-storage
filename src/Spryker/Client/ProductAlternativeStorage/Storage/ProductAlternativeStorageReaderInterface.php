@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\ProductAlternativeStorageTransfer;
 
 interface ProductAlternativeStorageReaderInterface
 {
-    /**
-     * @param string $concreteSku
-     *
-     * @return \Generated\Shared\Transfer\ProductAlternativeStorageTransfer|null
-     */
     public function findProductAlternativeStorage(string $concreteSku): ?ProductAlternativeStorageTransfer;
 }

@@ -60,9 +60,6 @@ class ProductAlternativeReplacementStorageListenerTest extends Unit
      */
     protected $alternativeProductAbstract;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -81,9 +78,6 @@ class ProductAlternativeReplacementStorageListenerTest extends Unit
         ]);
     }
 
-    /**
-     * @return void
-     */
     public function testHandleBulkProductReplacementForStorageEntityCanBePublishedForConcreteAlternative(): void
     {
         // Arrange
@@ -107,9 +101,6 @@ class ProductAlternativeReplacementStorageListenerTest extends Unit
         $this->assertNotNull($productReplacementStorageEntity);
     }
 
-    /**
-     * @return void
-     */
     public function testHandleBulkProductReplacementForStorageEntityCanBeUnpublishedForConcreteAlternative(): void
     {
         // Arrange
@@ -142,9 +133,6 @@ class ProductAlternativeReplacementStorageListenerTest extends Unit
         $this->assertNull($productReplacementStorageEntity);
     }
 
-    /**
-     * @return void
-     */
     public function testHandleBulkProductReplacementForStorageEntityCanBePublishedForAbstractAlternative(): void
     {
         // Arrange
@@ -168,9 +156,6 @@ class ProductAlternativeReplacementStorageListenerTest extends Unit
         $this->assertNotNull($productReplacementStorageEntity);
     }
 
-    /**
-     * @return void
-     */
     public function testHandleBulkProductReplacementForStorageEntityCanBeUnpublishedForAbstractAlternative(): void
     {
         // Arrange

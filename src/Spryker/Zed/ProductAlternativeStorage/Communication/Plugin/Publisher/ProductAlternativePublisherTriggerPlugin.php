@@ -85,12 +85,6 @@ class ProductAlternativePublisherTriggerPlugin extends AbstractPlugin implements
         return static::COL_ID_PRODUCT;
     }
 
-    /**
-     * @param int $offset
-     * @param int $limit
-     *
-     * @return \Generated\Shared\Transfer\ProductAlternativeCriteriaTransfer
-     */
     protected function createProductAlternativeCriteriaTransfer(int $offset, int $limit): ProductAlternativeCriteriaTransfer
     {
         return (new ProductAlternativeCriteriaTransfer())->setPagination(

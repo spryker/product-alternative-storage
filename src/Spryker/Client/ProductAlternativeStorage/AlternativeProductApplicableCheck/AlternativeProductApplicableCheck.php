@@ -24,11 +24,6 @@ class AlternativeProductApplicableCheck implements AlternativeProductApplicableC
         $this->alternativeProductApplicableCheckPlugins = $alternativeProductApplicableCheckPlugins;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductViewTransfer $productViewTransfer
-     *
-     * @return bool
-     */
     public function isAlternativeProductApplicable(ProductViewTransfer $productViewTransfer): bool
     {
         if ($productViewTransfer->getIdProductConcrete()) {
@@ -38,11 +33,6 @@ class AlternativeProductApplicableCheck implements AlternativeProductApplicableC
         return $this->isAlternativeProductApplicableForAbstract($productViewTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductViewTransfer $productViewTransfer
-     *
-     * @return bool
-     */
     protected function isAlternativeProductApplicableForAbstract(ProductViewTransfer $productViewTransfer): bool
     {
         $attributeMap = $productViewTransfer->getAttributeMap();
@@ -61,11 +51,6 @@ class AlternativeProductApplicableCheck implements AlternativeProductApplicableC
         return true;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductViewTransfer $productViewTransfer
-     *
-     * @return bool
-     */
     protected function executeAlternativeProductApplicableCheckCheckPlugins(ProductViewTransfer $productViewTransfer): bool
     {
         foreach ($this->alternativeProductApplicableCheckPlugins as $alternativeProductApplicableCheckPlugin) {

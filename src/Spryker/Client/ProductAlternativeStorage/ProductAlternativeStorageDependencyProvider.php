@@ -38,11 +38,6 @@ class ProductAlternativeStorageDependencyProvider extends AbstractDependencyProv
      */
     public const CLIENT_PRODUCT_STORAGE = 'CLIENT_PRODUCT_STORAGE';
 
-    /**
-     * @param \Spryker\Client\Kernel\Container $container
-     *
-     * @return \Spryker\Client\Kernel\Container
-     */
     public function provideServiceLayerDependencies(Container $container): Container
     {
         $container = parent::provideServiceLayerDependencies($container);
@@ -54,11 +49,6 @@ class ProductAlternativeStorageDependencyProvider extends AbstractDependencyProv
         return $container;
     }
 
-    /**
-     * @param \Spryker\Client\Kernel\Container $container
-     *
-     * @return \Spryker\Client\Kernel\Container
-     */
     protected function addStorageClient(Container $container): Container
     {
         $container->set(static::CLIENT_STORAGE, function (Container $container) {
@@ -68,11 +58,6 @@ class ProductAlternativeStorageDependencyProvider extends AbstractDependencyProv
         return $container;
     }
 
-    /**
-     * @param \Spryker\Client\Kernel\Container $container
-     *
-     * @return \Spryker\Client\Kernel\Container
-     */
     protected function addProductStorageClient(Container $container): Container
     {
         $container->set(static::CLIENT_PRODUCT_STORAGE, function (Container $container) {
@@ -84,11 +69,6 @@ class ProductAlternativeStorageDependencyProvider extends AbstractDependencyProv
         return $container;
     }
 
-    /**
-     * @param \Spryker\Client\Kernel\Container $container
-     *
-     * @return \Spryker\Client\Kernel\Container
-     */
     protected function addSynchronizationService(Container $container): Container
     {
         $container->set(static::SERVICE_SYNCHRONIZATION, function (Container $container) {
@@ -100,11 +80,6 @@ class ProductAlternativeStorageDependencyProvider extends AbstractDependencyProv
         return $container;
     }
 
-    /**
-     * @param \Spryker\Client\Kernel\Container $container
-     *
-     * @return \Spryker\Client\Kernel\Container
-     */
     protected function addAlternativeProductApplicableCheckPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_ALTERNATIVE_PRODUCT_APPLICABLE_CHECK, function (Container $container) {

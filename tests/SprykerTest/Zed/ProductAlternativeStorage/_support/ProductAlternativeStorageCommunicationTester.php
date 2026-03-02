@@ -33,17 +33,11 @@ class ProductAlternativeStorageCommunicationTester extends Actor
 {
     use _generated\ProductAlternativeStorageCommunicationTesterActions;
 
-    /**
-     * @return \Spryker\Zed\ProductAlternative\Business\ProductAlternativeFacadeInterface
-     */
     public function getProductAlternativeFacade(): ProductAlternativeFacadeInterface
     {
         return $this->getLocator()->productAlternative()->facade();
     }
 
-    /**
-     * @return \Spryker\Zed\ProductAlternativeStorage\Business\ProductAlternativeStorageFacade
-     */
     public function getMockedFacade(): ProductAlternativeStorageFacade
     {
         $factory = new ProductAlternativeStorageBusinessFactory();

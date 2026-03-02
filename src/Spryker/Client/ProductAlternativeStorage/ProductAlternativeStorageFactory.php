@@ -22,9 +22,6 @@ use Spryker\Client\ProductAlternativeStorage\Storage\ProductReplacementStorageRe
 
 class ProductAlternativeStorageFactory extends AbstractFactory
 {
-    /**
-     * @return \Spryker\Client\ProductAlternativeStorage\Storage\ProductAlternativeStorageReaderInterface
-     */
     public function createProductAlternativeStorageReader(): ProductAlternativeStorageReaderInterface
     {
         return new ProductAlternativeStorageReader(
@@ -33,9 +30,6 @@ class ProductAlternativeStorageFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Client\ProductAlternativeStorage\Storage\ProductReplacementStorageReaderInterface
-     */
     public function createProductReplacementStorageReader(): ProductReplacementStorageReaderInterface
     {
         return new ProductReplacementStorageReader(
@@ -44,9 +38,6 @@ class ProductAlternativeStorageFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Client\ProductAlternativeStorage\AlternativeProductApplicableCheck\AlternativeProductApplicableCheckInterface
-     */
     public function createAlternativeProductApplicableCheck(): AlternativeProductApplicableCheckInterface
     {
         return new AlternativeProductApplicableCheck(
@@ -54,9 +45,6 @@ class ProductAlternativeStorageFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Client\ProductAlternativeStorage\ProductAlternativeMapper\ProductAlternativeMapperInterface
-     */
     public function createProductAlternativeMapper(): ProductAlternativeMapperInterface
     {
         return new ProductAlternativeMapper(
@@ -65,25 +53,16 @@ class ProductAlternativeStorageFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Client\ProductAlternativeStorage\Dependency\Client\ProductAlternativeStorageToProductStorageClientInterface
-     */
     public function getProductStorageClient(): ProductAlternativeStorageToProductStorageClientInterface
     {
         return $this->getProvidedDependency(ProductAlternativeStorageDependencyProvider::CLIENT_PRODUCT_STORAGE);
     }
 
-    /**
-     * @return \Spryker\Client\ProductAlternativeStorage\Dependency\Client\ProductAlternativeStorageToStorageClientInterface
-     */
     public function getStorageClient(): ProductAlternativeStorageToStorageClientInterface
     {
         return $this->getProvidedDependency(ProductAlternativeStorageDependencyProvider::CLIENT_STORAGE);
     }
 
-    /**
-     * @return \Spryker\Client\ProductAlternativeStorage\Dependency\Service\ProductAlternativeStorageToSynchronizationServiceInterface
-     */
     public function getSynchronizationService(): ProductAlternativeStorageToSynchronizationServiceInterface
     {
         return $this->getProvidedDependency(ProductAlternativeStorageDependencyProvider::SERVICE_SYNCHRONIZATION);

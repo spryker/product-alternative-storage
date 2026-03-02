@@ -33,12 +33,6 @@ class ProductReplacementStorageMapper
         return $synchronizationDataTransfers;
     }
 
-    /**
-     * @param \Orm\Zed\ProductAlternativeStorage\Persistence\SpyProductReplacementForStorage $productReplacementForStorageEntity
-     * @param \Generated\Shared\Transfer\SynchronizationDataTransfer $synchronizationDataTransfer
-     *
-     * @return \Generated\Shared\Transfer\SynchronizationDataTransfer
-     */
     public function mapProductReplacementForStorageEntityToSynchronizationDataTransfer(
         SpyProductReplacementForStorage $productReplacementForStorageEntity,
         SynchronizationDataTransfer $synchronizationDataTransfer

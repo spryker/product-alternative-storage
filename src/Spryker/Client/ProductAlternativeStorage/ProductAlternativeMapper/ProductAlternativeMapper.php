@@ -30,10 +30,6 @@ class ProductAlternativeMapper implements ProductAlternativeMapperInterface
      */
     protected $productAlternativeStorageReader;
 
-    /**
-     * @param \Spryker\Client\ProductAlternativeStorage\Storage\ProductAlternativeStorageReaderInterface $productAlternativeStorageReader
-     * @param \Spryker\Client\ProductAlternativeStorage\Dependency\Client\ProductAlternativeStorageToProductStorageClientInterface $productStorageClient
-     */
     public function __construct(
         ProductAlternativeStorageReaderInterface $productAlternativeStorageReader,
         ProductAlternativeStorageToProductStorageClientInterface $productStorageClient
@@ -149,11 +145,6 @@ class ProductAlternativeMapper implements ProductAlternativeMapperInterface
         return array_filter($productViewTransferList);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductViewTransfer $productViewTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductAlternativeStorageTransfer|null
-     */
     protected function findProductAlternativeStorageForAbstractProduct(ProductViewTransfer $productViewTransfer): ?ProductAlternativeStorageTransfer
     {
         $attributeMap = $productViewTransfer->getAttributeMap();
@@ -177,12 +168,6 @@ class ProductAlternativeMapper implements ProductAlternativeMapperInterface
             ->setProductConcreteIds(array_unique($productConcreteIds));
     }
 
-    /**
-     * @param int $idProduct
-     * @param string $localeName
-     *
-     * @return \Generated\Shared\Transfer\ProductViewTransfer|null
-     */
     protected function findConcreteProductViewTransfer(int $idProduct, string $localeName): ?ProductViewTransfer
     {
         $productViewTransfer = $this->productStorageClient
@@ -195,12 +180,6 @@ class ProductAlternativeMapper implements ProductAlternativeMapperInterface
         return null;
     }
 
-    /**
-     * @param int $idProductAbstract
-     * @param string $localeName
-     *
-     * @return \Generated\Shared\Transfer\ProductViewTransfer|null
-     */
     protected function findAbstractProductViewTransfer(int $idProductAbstract, string $localeName): ?ProductViewTransfer
     {
         return $this->productStorageClient->findProductAbstractViewTransfer($idProductAbstract, $localeName);
