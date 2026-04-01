@@ -60,4 +60,24 @@ class ProductAlternativeStorageConfig extends AbstractBundleConfig
      * @var string
      */
     public const PRODUCT_ALTERNATIVE_PUBLISH = 'ProductAlternative.product_alternative.publish';
+
+    /**
+     * Specification:
+     * - Queue name used for product alternative publish events.
+     *
+     * @api
+     *
+     * @var string
+     */
+    public const string PUBLISH_PRODUCT_ALTERNATIVE_QUEUE = 'publish.product_alternative';
+
+    /**
+     * Specification:
+     * - Queue name used for product replacement publish events.
+     *
+     * @api
+     *
+     * @var string
+     */
+    public const string PUBLISH_PRODUCT_REPLACEMENT_QUEUE = 'publish.product_replacement';
 }
