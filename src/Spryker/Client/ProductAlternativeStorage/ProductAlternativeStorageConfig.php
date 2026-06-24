@@ -12,6 +12,8 @@ use Spryker\Client\Kernel\AbstractBundleConfig;
 class ProductAlternativeStorageConfig extends AbstractBundleConfig
 {
     /**
+     * @api
+     *
      * @see \Spryker\Shared\Product\ProductConfig::RESOURCE_TYPE_ATTRIBUTE_MAP
      *
      * @var string
