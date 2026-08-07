@@ -7,6 +7,8 @@
 
 namespace Spryker\Client\ProductAlternativeStorage;
 
+use Generated\Shared\Transfer\ConcreteAlternativeProductCollectionTransfer;
+use Generated\Shared\Transfer\ConcreteAlternativeProductCriteriaTransfer;
 use Generated\Shared\Transfer\ProductAlternativeStorageTransfer;
 use Generated\Shared\Transfer\ProductReplacementStorageTransfer;
 use Generated\Shared\Transfer\ProductViewTransfer;
@@ -80,6 +82,23 @@ class ProductAlternativeStorageClient extends AbstractClient implements ProductA
         return $this->getFactory()
             ->createProductAlternativeMapper()
             ->getConcreteAlternativeProducts($productViewTransfer, $localeName);
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @api
+     *
+     * @param \Generated\Shared\Transfer\ConcreteAlternativeProductCriteriaTransfer $concreteAlternativeProductCriteriaTransfer
+     *
+     * @return \Generated\Shared\Transfer\ConcreteAlternativeProductCollectionTransfer
+     */
+    public function getConcreteAlternativeProductCollection(
+        ConcreteAlternativeProductCriteriaTransfer $concreteAlternativeProductCriteriaTransfer
+    ): ConcreteAlternativeProductCollectionTransfer {
+        return $this->getFactory()
+            ->createProductAlternativeMapper()
+            ->getConcreteAlternativeProductCollection($concreteAlternativeProductCriteriaTransfer);
     }
 
     /**

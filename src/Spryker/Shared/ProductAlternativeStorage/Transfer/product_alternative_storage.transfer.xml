@@ -57,4 +57,22 @@
         <property name="offset" type="int"/>
     </transfer>
 
+    <transfer name="ConcreteAlternativeProductCriteria" strict="true">
+        <property name="concreteAlternativeProductConditions" type="ConcreteAlternativeProductConditions"/>
+    </transfer>
+
+    <transfer name="ConcreteAlternativeProductConditions" strict="true">
+        <property name="skus" type="array" singular="sku"/>
+        <property name="localeName" type="string"/>
+    </transfer>
+
+    <transfer name="ConcreteAlternativeProduct" strict="true">
+        <property name="sku" type="string"/>
+        <property name="alternativeProducts" type="ProductView[]" singular="alternativeProduct"/>
+    </transfer>
+
+    <transfer name="ConcreteAlternativeProductCollection" strict="true">
+        <property name="concreteAlternativeProducts" type="ConcreteAlternativeProduct[]" singular="concreteAlternativeProduct"/>
+    </transfer>
+
 </transfers>

@@ -30,4 +30,13 @@ interface ProductAlternativeStorageToProductStorageClientInterface
      * @return array
      */
     public function getBulkProductAbstractStorageDataByProductAbstractIdsAndLocaleName(array $productAbstractIds, string $localeName): array;
+
+    /**
+     * @param array<int> $productConcreteIds
+     * @param string $localeName
+     * @param array<string, mixed> $selectedAttributes
+     *
+     * @return array<\Generated\Shared\Transfer\ProductViewTransfer>
+     */
+    public function getProductConcreteViewTransfers(array $productConcreteIds, string $localeName, array $selectedAttributes = []): array;
 }

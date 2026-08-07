@@ -7,6 +7,8 @@
 
 namespace Spryker\Client\ProductAlternativeStorage;
 
+use Generated\Shared\Transfer\ConcreteAlternativeProductCollectionTransfer;
+use Generated\Shared\Transfer\ConcreteAlternativeProductCriteriaTransfer;
 use Generated\Shared\Transfer\ProductAlternativeStorageTransfer;
 use Generated\Shared\Transfer\ProductReplacementStorageTransfer;
 use Generated\Shared\Transfer\ProductViewTransfer;
@@ -68,6 +70,27 @@ interface ProductAlternativeStorageClientInterface
      * @return array<\Generated\Shared\Transfer\ProductViewTransfer>
      */
     public function getConcreteAlternativeProducts(ProductViewTransfer $productViewTransfer, string $localeName): array;
+
+    /**
+     * Specification:
+     *  - Gets alternative products for the concrete product SKUs in bulk.
+     *  - Requires `ConcreteAlternativeProductCriteria.concreteAlternativeProductConditions.skus` to be set.
+     *  - Requires `ConcreteAlternativeProductCriteria.concreteAlternativeProductConditions.localeName` to be set.
+     *  - Abstract alternatives replaced with mapped concretes.
+     *  - Filters out unavailable alternative products.
+     *  - Returns `ConcreteAlternativeProductCollectionTransfer` with one `ConcreteAlternativeProductTransfer` per requested SKU
+     *    that has alternatives, each holding the alternative `ProductViewTransfer`s.
+     *  - SKUs without alternatives are not present in the collection.
+     *
+     * @api
+     *
+     * @param \Generated\Shared\Transfer\ConcreteAlternativeProductCriteriaTransfer $concreteAlternativeProductCriteriaTransfer
+     *
+     * @return \Generated\Shared\Transfer\ConcreteAlternativeProductCollectionTransfer
+     */
+    public function getConcreteAlternativeProductCollection(
+        ConcreteAlternativeProductCriteriaTransfer $concreteAlternativeProductCriteriaTransfer
+    ): ConcreteAlternativeProductCollectionTransfer;
 
     /**
      * Specification:

@@ -11,10 +11,18 @@ use Generated\Shared\Transfer\ProductAlternativeStorageTransfer;
 use Generated\Shared\Transfer\SynchronizationDataTransfer;
 use Spryker\Client\ProductAlternativeStorage\Dependency\Client\ProductAlternativeStorageToStorageClientInterface;
 use Spryker\Client\ProductAlternativeStorage\Dependency\Service\ProductAlternativeStorageToSynchronizationServiceInterface;
+use Spryker\Service\UtilEncoding\UtilEncodingServiceInterface;
 use Spryker\Shared\ProductAlternativeStorage\ProductAlternativeStorageConfig;
 
 class ProductAlternativeStorageReader implements ProductAlternativeStorageReaderInterface
 {
+    /**
+     * @uses \Spryker\Zed\Storage\Communication\Table\StorageTable::KV_PREFIX
+     *
+     * @var string
+     */
+    protected const KV_PREFIX = 'kv:';
+
     /**
      * @var \Spryker\Client\ProductAlternativeStorage\Dependency\Client\ProductAlternativeStorageToStorageClientInterface
      */
@@ -27,7 +35,8 @@ class ProductAlternativeStorageReader implements ProductAlternativeStorageReader
 
     public function __construct(
         ProductAlternativeStorageToStorageClientInterface $storageClient,
-        ProductAlternativeStorageToSynchronizationServiceInterface $synchronizationService
+        ProductAlternativeStorageToSynchronizationServiceInterface $synchronizationService,
+        protected UtilEncodingServiceInterface $utilEncodingService
     ) {
         $this->storageClient = $storageClient;
         $this->synchronizationService = $synchronizationService;
@@ -43,6 +52,49 @@ class ProductAlternativeStorageReader implements ProductAlternativeStorageReader
         }
 
         return $this->mapToProductAlternativeStorage($productAlternativeStorageData);
+    }
+
+    /**
+     * @param array<string> $concreteSkus
+     *
+     * @return array<string, \Generated\Shared\Transfer\ProductAlternativeStorageTransfer>
+     */
+    public function getProductAlternativeStorages(array $concreteSkus): array
+    {
+        $storageKeysByConcreteSku = $this->generateKeys($concreteSkus);
+        $productAlternativeStorageDataCollection = $this->storageClient->getMulti(array_values($storageKeysByConcreteSku));
+
+        $productAlternativeStorageTransfers = [];
+
+        foreach ($storageKeysByConcreteSku as $concreteSku => $storageKey) {
+            $productAlternativeStorageData = $productAlternativeStorageDataCollection[static::KV_PREFIX . $storageKey] ?? null;
+
+            if (!$productAlternativeStorageData) {
+                continue;
+            }
+
+            $productAlternativeStorageTransfers[$concreteSku] = $this->mapToProductAlternativeStorage(
+                (array)$this->utilEncodingService->decodeJson($productAlternativeStorageData, true),
+            );
+        }
+
+        return $productAlternativeStorageTransfers;
+    }
+
+    /**
+     * @param array<string> $concreteSkus
+     *
+     * @return array<string, string>
+     */
+    protected function generateKeys(array $concreteSkus): array
+    {
+        $storageKeysByConcreteSku = [];
+
+        foreach ($concreteSkus as $concreteSku) {
+            $storageKeysByConcreteSku[$concreteSku] = $this->generateKey($concreteSku);
+        }
+
+        return $storageKeysByConcreteSku;
     }
 
     protected function mapToProductAlternativeStorage(array $productAlternativeStorageData): ProductAlternativeStorageTransfer

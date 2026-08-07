@@ -7,6 +7,8 @@
 
 namespace Spryker\Client\ProductAlternativeStorage\ProductAlternativeMapper;
 
+use Generated\Shared\Transfer\ConcreteAlternativeProductCollectionTransfer;
+use Generated\Shared\Transfer\ConcreteAlternativeProductCriteriaTransfer;
 use Generated\Shared\Transfer\ProductViewTransfer;
 
 interface ProductAlternativeMapperInterface
@@ -18,6 +20,10 @@ interface ProductAlternativeMapperInterface
      * @return array<\Generated\Shared\Transfer\ProductViewTransfer>
      */
     public function getConcreteAlternativeProducts(ProductViewTransfer $productViewTransfer, string $localeName): array;
+
+    public function getConcreteAlternativeProductCollection(
+        ConcreteAlternativeProductCriteriaTransfer $concreteAlternativeProductCriteriaTransfer
+    ): ConcreteAlternativeProductCollectionTransfer;
 
     /**
      * @param \Generated\Shared\Transfer\ProductViewTransfer $productViewTransfer

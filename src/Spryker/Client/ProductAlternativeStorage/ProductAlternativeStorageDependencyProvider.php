@@ -38,11 +38,17 @@ class ProductAlternativeStorageDependencyProvider extends AbstractDependencyProv
      */
     public const CLIENT_PRODUCT_STORAGE = 'CLIENT_PRODUCT_STORAGE';
 
+    /**
+     * @var string
+     */
+    public const SERVICE_UTIL_ENCODING = 'SERVICE_UTIL_ENCODING';
+
     public function provideServiceLayerDependencies(Container $container): Container
     {
         $container = parent::provideServiceLayerDependencies($container);
         $container = $this->addStorageClient($container);
         $container = $this->addSynchronizationService($container);
+        $container = $this->addUtilEncodingService($container);
         $container = $this->addProductStorageClient($container);
         $container = $this->addAlternativeProductApplicableCheckPlugins($container);
 
@@ -75,6 +81,15 @@ class ProductAlternativeStorageDependencyProvider extends AbstractDependencyProv
             return new ProductAlternativeStorageToSynchronizationServiceBridge(
                 $container->getLocator()->synchronization()->service(),
             );
+        });
+
+        return $container;
+    }
+
+    protected function addUtilEncodingService(Container $container): Container
+    {
+        $container->set(static::SERVICE_UTIL_ENCODING, function (Container $container) {
+            return $container->getLocator()->utilEncoding()->service();
         });
 
         return $container;

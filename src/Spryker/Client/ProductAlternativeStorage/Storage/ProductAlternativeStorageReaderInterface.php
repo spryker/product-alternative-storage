@@ -12,4 +12,11 @@ use Generated\Shared\Transfer\ProductAlternativeStorageTransfer;
 interface ProductAlternativeStorageReaderInterface
 {
     public function findProductAlternativeStorage(string $concreteSku): ?ProductAlternativeStorageTransfer;
+
+    /**
+     * @param array<string> $concreteSkus
+     *
+     * @return array<string, \Generated\Shared\Transfer\ProductAlternativeStorageTransfer>
+     */
+    public function getProductAlternativeStorages(array $concreteSkus): array;
 }

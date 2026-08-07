@@ -19,6 +19,7 @@ use Spryker\Client\ProductAlternativeStorage\Storage\ProductAlternativeStorageRe
 use Spryker\Client\ProductAlternativeStorage\Storage\ProductAlternativeStorageReaderInterface;
 use Spryker\Client\ProductAlternativeStorage\Storage\ProductReplacementStorageReader;
 use Spryker\Client\ProductAlternativeStorage\Storage\ProductReplacementStorageReaderInterface;
+use Spryker\Service\UtilEncoding\UtilEncodingServiceInterface;
 
 class ProductAlternativeStorageFactory extends AbstractFactory
 {
@@ -27,6 +28,7 @@ class ProductAlternativeStorageFactory extends AbstractFactory
         return new ProductAlternativeStorageReader(
             $this->getStorageClient(),
             $this->getSynchronizationService(),
+            $this->getUtilEncodingService(),
         );
     }
 
@@ -66,6 +68,11 @@ class ProductAlternativeStorageFactory extends AbstractFactory
     public function getSynchronizationService(): ProductAlternativeStorageToSynchronizationServiceInterface
     {
         return $this->getProvidedDependency(ProductAlternativeStorageDependencyProvider::SERVICE_SYNCHRONIZATION);
+    }
+
+    public function getUtilEncodingService(): UtilEncodingServiceInterface
+    {
+        return $this->getProvidedDependency(ProductAlternativeStorageDependencyProvider::SERVICE_UTIL_ENCODING);
     }
 
     /**
